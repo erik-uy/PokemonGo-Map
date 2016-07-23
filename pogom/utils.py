@@ -67,6 +67,7 @@ def insert_mock_data():
                        longitude=locations[i][1],
                        disappear_time=disappear_time,
                        detect_time=detect_time)
+        
 
     for i in range(num_pokestop):
 
