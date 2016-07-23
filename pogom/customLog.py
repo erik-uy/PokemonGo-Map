@@ -1,3 +1,4 @@
+import datetime
 from .utils import get_pokemon_name
 from pogom.utils import get_args
 from datetime import datetime
@@ -27,3 +28,12 @@ def printPokemon(id,lat,lng,itime):
             timeLeft = itime-datetime.utcnow()
             print "======================================\n Name: %s\n Coord: (%f,%f)\n ID: %s \n Remaining Time: %s\n======================================" % (
                 pokemon_name.encode('utf-8'),lat,lng,pokemon_id,str(timeLeft))
+            
+
+def logPokemon(eid,spid,pid,lat,lng,itime):
+    pokemon_name = get_pokemon_name(pid).lower()
+    pokemon_id = str(pid)
+    fname="logs/" + datetime.now().strftime("%Y%m%d-pokemon") + ".csv"
+    with open( fname, "a") as logfile:
+        logfile.write("{},{},{},{},{},{},{}\n".format(eid, spid, pokemon_name, lat, lng, itime, datetime.now()))
+
