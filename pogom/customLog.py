@@ -1,11 +1,16 @@
 import datetime
+import os
+import codecs
 from .utils import get_pokemon_name
 from pogom.utils import get_args
 from datetime import datetime
 
 args = get_args()
 fname="logs/" + datetime.now().strftime("%Y%m%d-pokemon") + ".csv"
-logfile = open( fname, "a")
+directory = os.path.dirname(fname)
+if not os.path.exists(directory):
+    os.makedirs(directory)
+logfile = codecs.open(fname, "a", "utf-8")
 
 #temporarily disabling because -o and -i is removed from 51f651228c00a96b86f5c38d1a2d53b32e5d9862
 #IGNORE = None
