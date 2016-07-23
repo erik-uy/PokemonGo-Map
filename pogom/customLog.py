@@ -4,6 +4,9 @@ from pogom.utils import get_args
 from datetime import datetime
 
 args = get_args()
+fname="logs/" + datetime.now().strftime("%Y%m%d-pokemon") + ".csv"
+logfile = open( fname, "a")
+
 #temporarily disabling because -o and -i is removed from 51f651228c00a96b86f5c38d1a2d53b32e5d9862
 #IGNORE = None
 #ONLY = None
@@ -33,7 +36,5 @@ def printPokemon(id,lat,lng,itime):
 def logPokemon(eid,spid,pid,lat,lng,itime):
     pokemon_name = get_pokemon_name(pid).lower()
     pokemon_id = str(pid)
-    fname="logs/" + datetime.now().strftime("%Y%m%d-pokemon") + ".csv"
-    with open( fname, "a") as logfile:
-        logfile.write("{},{},{},{},{},{},{}\n".format(eid, spid, pokemon_name, lat, lng, itime, datetime.now()))
+    logfile.write("{},{},{},{},{},{},{}\n".format(eid, spid, pokemon_name, lat, lng, itime, datetime.now()))
 
