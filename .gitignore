@@ -8,4 +8,8 @@ config/config.ini
 static/dist/
 node_modules/
 venv/
+<<<<<<< 73b4ea14a4c85ac3766152cb528e99ec3d5644d7
 core
+=======
+logs/
+>>>>>>> # This is a combination of 3 commits.

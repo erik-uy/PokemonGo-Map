@@ -1,8 +1,17 @@
+import datetime
+
+import os
 from .utils import get_pokemon_name
 from pogom.utils import get_args
 from datetime import datetime
 
 args = get_args()
+fname="logs/" + datetime.now().strftime("%Y%m%d-pokemon") + ".csv"
+directory = os.path.dirname(fname)
+if not os.path.exists(directory):
+    os.makedirs(directory)
+logfile = open(fname, "a")
+
 #temporarily disabling because -o and -i is removed from 51f651228c00a96b86f5c38d1a2d53b32e5d9862
 #IGNORE = None
 #ONLY = None
@@ -27,3 +36,11 @@ def printPokemon(id,lat,lng,itime):
             timeLeft = itime-datetime.utcnow()
             print "======================================\n Name: %s\n Coord: (%f,%f)\n ID: %s \n Remaining Time: %s\n======================================" % (
                 pokemon_name.encode('utf-8'),lat,lng,pokemon_id,str(timeLeft))
+            
+
+def logPokemon(eid,spid,pid,lat,lng,itime):
+    pokemon_name = get_pokemon_name(pid).lower()
+    pokemon_id = str(pid)
+    line="{},{},{},{},{},{},{}\n".format(eid, spid, pokemon_name.encode('utf-8'), lat, lng, itime, datetime.now())
+    logfile.write(line)
+
