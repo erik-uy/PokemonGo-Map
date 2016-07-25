@@ -4,6 +4,7 @@
 *.db-journal
 *.sass-cache
 *.orig
+*.iml
 config/config.ini
 config/credentials.json
 static/dist/

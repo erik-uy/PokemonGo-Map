@@ -28,5 +28,6 @@ disable_gyms: false
 [Misc]
 #you need a google maps api key to run this!
 Google_Maps_API_Key :
+Google_Datastore_Project :
 Host: 127.0.0.1
 Port: 5000

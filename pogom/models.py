@@ -13,7 +13,9 @@ from base64 import b64encode
 from . import config
 from .utils import get_pokemon_name, load_credentials, get_args
 from .transform import transform_from_wgs_to_gcj
-from .customLog import printPokemon, logPokemon
+from .customLog import printPokemon
+from .cloud import logPokemon
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(module)11s] [%(levelname)7s] %(message)s')
 log = logging.getLogger(__name__)
 
